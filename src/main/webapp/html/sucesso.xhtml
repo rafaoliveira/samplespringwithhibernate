@@ -1,0 +1,50 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Livros Cadastrados</title>
+</h:head>
+<h:body>
+
+	<h:form>
+
+		<p:panel id="panel" header="Livros Cadastrados" style="margin-bottom:10px;">
+			<h:messages />
+
+			<p:dataTable var="l" value="#{livroMB.livros}">
+
+				<p:column headerText="Titulo">
+					<h:outputText value="#{l.titulo}" />
+				</p:column>
+
+				<p:column headerText="Genero">
+					<h:outputText value="#{l.genero}" />
+				</p:column>
+
+				<p:column headerText="Autor">
+					<h:outputText value="#{l.autor}" />
+				</p:column>
+
+				<p:column headerText="Idioma">
+					<h:outputText value="#{l.idioma}" />
+				</p:column>
+
+				<p:column headerText="Lancamento">
+					<h:outputText value="#{l.lancamento}">
+						<f:convertDateTime pattern="dd/MM/yyyy" />
+					</h:outputText>
+				</p:column>
+
+			</p:dataTable>
+
+		</p:panel>
+
+
+		<p:commandButton value="Cadastrar livro" update="panel"
+			style="margin-right:20px;" action="#{livroMB.voltar}" />
+
+	</h:form>
+
+</h:body>
+</html>
